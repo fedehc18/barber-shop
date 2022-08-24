@@ -38,7 +38,7 @@ function ModalCalendar(props) {
         setIsSubmitting(true)
         try {
             axios.defaults.headers.common['Authorization'] = jwt;
-            const response = await axios.post("http://localhost:5001/reservation/", {
+            const response = await axios.post("https://barbershop-ui.herokuapp.com/reservation/", {
                 date: startDate,
                 time: selectedTime,
                 barberId: props.barberId

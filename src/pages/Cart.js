@@ -23,7 +23,7 @@ function Cart() {
                 })
 
                 axios.defaults.headers.common["Authorization"] = jwt;
-                const response = await axios.post("http://localhost:5001/orders", body)
+                const response = await axios.post("https://barbershop-ui.herokuapp.com/orders", body)
                 setAlert({ text: `Se realizo la compra exitosamente! con un total de $${total}`, type: TYPES.SUCCESS })
                 resetCart()
             } catch (error) {

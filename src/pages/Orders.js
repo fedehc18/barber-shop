@@ -26,7 +26,7 @@ function Orders() {
         setIsLoading(true)
         try {
             axios.defaults.headers.common["Authorization"] = jwt;
-            const response = await axios.get("http://localhost:5001/orders")
+            const response = await axios.get("https://barbershop-ui.herokuapp.com/orders")
             setOrders(response.data.data)
         } catch (error) {
             console.log(error)
@@ -39,7 +39,7 @@ function Orders() {
         setIsLoading(true)
         try {
             axios.defaults.headers.common["Authorization"] = jwt;
-            await axios.delete("http://localhost:5001/orders/" + id)
+            await axios.delete("https://barbershop-ui.herokuapp.com/orders/" + id)
         } catch (error) {
             console.log(error)
             setAlert({ text: DEFAULT_MESSAGES.SERVER_ERROR, type: TYPES.ERROR, timeout: 5000 })

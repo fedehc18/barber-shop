@@ -33,7 +33,7 @@ function LoginModal(props) {
         let jwt
         setIsLoading(true)
         try {
-            const response = await axios.post("http://localhost:5001/auth/login", { email, password })
+            const response = await axios.post("https://barbershop-ui.herokuapp.com/auth/login", { email, password })
             jwt = response.data.data.JWT
             localStorage.setItem("JWT", jwt);
             setJwt(jwt)

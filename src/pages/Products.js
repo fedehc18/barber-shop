@@ -15,7 +15,7 @@ function Products() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get("http://localhost:5001/products")
+                const response = await axios.get("https://barbershop-ui.herokuapp.com/products")
                 setProducts(response.data.data)
             } catch (error) {
                 console.log(error)

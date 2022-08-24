@@ -30,7 +30,7 @@ function RegisterModal(props) {
 
             setIsLoading(true)
             try {
-                const response = await axios.post("http://localhost:5001/users/", body)
+                const response = await axios.post("https://barbershop-ui.herokuapp.com/users/", body)
                 const user = response.data.data
                 setAlert({ text: `Bienvenido ${user.fullName}. Por favor inicia sesión para continuar.`, type: TYPES.SUCCESS })
                 resetState()

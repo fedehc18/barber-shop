@@ -24,7 +24,7 @@ function Reservation() {
 
     async function getBarbers() {
       try {
-        const response = await axios("http://localhost:5001/barbers");
+        const response = await axios("https://barbershop-ui.herokuapp.com/barbers");
         setBarbers(response.data.data);
       } catch (error) {
         console.log(error);
@@ -50,7 +50,7 @@ function Reservation() {
     try {
       axios.defaults.headers.common["Authorization"] = jwt;
       const response = await axios.get(
-        "http://localhost:5001/reservation/pending"
+        "https://barbershop-ui.herokuapp.com/reservation/pending"
       );
       setReservations(response.data.data);
     } catch (error) {
@@ -67,7 +67,7 @@ function Reservation() {
     try {
       axios.defaults.headers.common["Authorization"] = jwt;
       const response = await axios.delete(
-        "http://localhost:5001/reservation/" + id
+        "https://barbershop-ui.herokuapp.com/reservation/" + id
       );
       setAlert({ text: "Se cancelo correctamente", type: TYPES.SUCCESS });
       getReservations();
@@ -91,11 +91,9 @@ function Reservation() {
                 <ul>
                   {reservations.map((reservation) => (
                     <li>
-                      {`${reservation.barber.name} ${
-                        reservation.barber.lastName
-                      }, ${moment(reservation.date).format("YY/MM/DD")}, ${
-                        reservation.time
-                      }:00hs`}
+                      {`${reservation.barber.name} ${reservation.barber.lastName
+                        }, ${moment(reservation.date).format("YY/MM/DD")}, ${reservation.time
+                        }:00hs`}
                       <button
                         className="boton-lista"
                         onClick={() => cancelReservation(reservation.id)}>
